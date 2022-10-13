@@ -52,6 +52,15 @@ MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMNMMNMNMMMNMMNNMMMMMMMMMMMM
 MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMNNNNMMNNNMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
 MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
 */
+/*export async function loadAllEarlierMessages(id, done) {
+  const found = WAPI.getChat(id);
+  while (!found.msgs.msgLoadState.noEarlierMsgs) {
+    console.log('Loading...');
+    await window.Store.ConversationMsgs.loadEarlierMsgs(found);
+  }
+  console.log('done');
+  return true;
+}*/
 export async function loadAndGetAllMessagesInChat(
   id,
   includeMe,
@@ -86,6 +95,6 @@ export async function loadAndGetAllMessagesInChat(
  * @param {Funciton} done Optional callback
  */
 export function asyncLoadAllEarlierMessages(id, done) {
-  loadAndGetAllMessagesInChat(id);
+  loadAndGetAllMessagesInChat(id); // MH
   done();
 }
