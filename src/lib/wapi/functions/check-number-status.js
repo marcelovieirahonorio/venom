@@ -26,7 +26,9 @@ export async function checkNumberStatus(id, conn = false) {
     if (lid) {
       return await Store.checkNumberMD
         .queryExists(lid.id)
+        //.queryPhoneExists(lid.id)  // https://github.com/orkestral/venom/pull/1791/files
         .then((result) => {
+          //print(result)
           if (!!result && typeof result === 'object') {
             const data = {
               status: 200,
