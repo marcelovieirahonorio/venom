@@ -249,8 +249,8 @@ export async function create(
 
     statusFind && statusFind('initWhatsapp', this.session);
     // Initialize whatsapp
-    const newPage: Page = await getWhatsappPage(browser);
-    const client = new Whatsapp(newPage, session, mergedOptions);
+    //const newPage: Page = await getWhatsappPage(browser);
+    //const client = new Whatsapp(newPage, session, mergedOptions);
 
     const page: false | Page = await initWhatsapp(
       session,
@@ -277,7 +277,7 @@ export async function create(
       session
     });
 
-    ////const client = new Whatsapp(page, session, mergedOptions);
+    const client = new Whatsapp(page, session, mergedOptions);
 
     client.onStreamChange(async (stateStream) => {
       if (stateStream === SocketStream.CONNECTED) {
